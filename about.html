@@ -6,32 +6,29 @@
   <title>About</title>
   <style>
     body {
-      background-image: url("C:\Users\amirr\OneDrive\Desktop\Image006.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-      
-    
     
     header {
       background-color: #333;
       color: #fff;
       padding: 20px;
-      display: flex;
-      justify-content: flex-end;
+      text-align: center;
     }
     
     header ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
+      display: none;
+      flex-direction: column;
+      align-items: center;
     }
     
     header li {
-      margin-left: 10px;
+      margin: 10px 0;
     }
     
     header a {
@@ -48,7 +45,7 @@
     }
     
     main {
-      padding: 40px;
+      padding: 20px;
     }
     
     footer {
@@ -57,12 +54,49 @@
       padding: 20px;
       text-align: center;
     }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    /* Animation */
+    @keyframes slideIn {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .menu-button {
+      background-color: #555;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      animation: slideIn 0.5s forwards;
+    }
+
+    .menu-button:hover {
+      background-color: #777;
+    }
+
+    .slide-in {
+      display: flex !important;
+      animation: slideIn 0.5s forwards;
+    }
   </style>
 </head>
 <body>
   <header>
+    <button id="menu-button" class="menu-button">Menu</button>
     <nav>
-      <ul>
+      <ul id="menu-items">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
@@ -81,19 +115,29 @@
         I fell in love with the idea of hacking. I booted my virtual machines, I knew a lot of hacks. but... I got bored. it was not entertaining or exciting anymore, I found new hobbies like skating.
       </p>
       <p>
-        One day I look at my computer, I boot it up again, and it hit me! I just needed a break. Hours spent on the computer, my brain needed a break, a long one. But now I'm back with most of the things forgotten, still learning, but now it's more exciting.
+        One day I look at my computer, I boot it up again, and it hit me! I just
+        needed a break. Hours spent on the computer, my brain needed a break, a long one. But now I'm back with most of the things forgotten, still learning, but now it's more exciting.
       </p>
       <p>
-        I'm back, stronger than ever. "The quit" is just a break.
+      I'm back, stronger than ever. "The quit" is just a break.
       </p>
       <p>
-        --Cyber-Skull
+      --Cyber-Skull
       </p>
-    </section>
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 My Website. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+      </section>
+      
+        </main>
+        <footer>
+          <p>&copy; 2023 My Website. All rights reserved.</p>
+        </footer>
+        <script>
+          const menuButton = document.getElementById('menu-button');
+          const menuItems = document.getElementById('menu-items');
+      
+          menuButton.addEventListener('click', function() {
+            menuItems.style.display = menuItems.style.display === 'none' ? 'flex' : 'none';
+            menuItems.classList.toggle('slide-in');
+          });
+        </script>
+      </body>
+      </html>
